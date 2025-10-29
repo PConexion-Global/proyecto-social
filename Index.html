@@ -22,11 +22,12 @@
             align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
+            padding: 0px;
         }
 
         .poster-container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 100hv;
             min-height: 100vh;
             position: relative;
             overflow: hidden;
@@ -171,7 +172,7 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
         }
 
@@ -245,7 +246,7 @@
         }
 
         /* 🖥️ Computadoras grandes */
-        @media (min-width: 993px) {
+        @media (min-width: 993px) and (max-width: 1000px) {
             .title {
                 font-size: 56px;
             }
@@ -257,6 +258,7 @@
             .menu-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
+
         }
     </style>
 </head>
