@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Conexión Global para el Futuro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type ="icon/x-icon" href = "img/favicon.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .poster-container {
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .poster-container {
+                width: 720px;
+            }
+        }
+                
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .poster-container {
+            width: 100%; /* 720px para cel */
+            min-height: 960px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #3a1c71, #4a69bd, #764ba2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            color: white;
+        }
+        
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 20%);
+            z-index: 1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+        }
+        
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 50px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .image-container {
+            width: 100%;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .main-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .accent-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.4), transparent);
+            z-index: 1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
+            background: radial-gradient(circle, rgba(74, 105, 189, 0.4), transparent);
+        }
+        
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .material-icons {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .icon-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .menu-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .menu-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #e0e0ff;
+            text-align: center;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .menu-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+        
+        .menu-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(118, 75, 162, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .menu-text {
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="bg-pattern"></div>
+        <div class="accent-circle circle-1"></div>
+        <div class="accent-circle circle-2"></div>
+        
+        <div class="content">
+            <h1 class="title">Conexión Global para el Futuro</h1>
+            <p class="subtitle">Fomentando hábitos políticos y cívicos a través de valores</p>
+            
+            <div class="image-container">
+                <img src="https://sfile.chatglm.cn/images-ppt/dd6e0ff59866.jpg" alt="Conexión Global" class="main-image">
+                <div class="overlay"></div>
+            </div>
+            
+            <div class="icon-container">
+                <div class="icon-item">
+                    <i class="material-icons">public</i>
+                    <span class="icon-text">Global</span>
+                </div>
+                <div class="icon-item">
+                    <i class="material-icons">people</i>
+                    <span class="icon-text">Comunidad</span>
+                </div>
+                <div class="icon-item">
+                    <i class="material-icons">school</i>
+                    <span class="icon-text">Educación</span>
+                </div>
+                <div class="icon-item">
+                    <i class="material-icons">handshake</i>
+                    <span class="icon-text">Valores</span>
+                </div>
+            </div>
+            
+            <div class="menu-container">
+                <h3 class="menu-title">Navegación</h3>
+                <div class="menu-grid">
+                    <a href="Nosotros.html" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="material-icons">groups</i>
+                        </div>
+                        <span class="menu-text">Quiénes somos</span>
+                    </a>
+                    <a href="Objetivo.html" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="material-icons">track_changes</i>
+                        </div>
+                        <span class="menu-text">Objetivo</span>
+                    </a>
+                    <a href="Aprendizaje.html" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="material-icons">school</i>
+                        </div>
+                        <span class="menu-text">Maneras de aprendizaje</span>
+                    </a>
+                    <a href="Temas.html" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="material-icons">topic</i>
+                        </div>
+                        <span class="menu-text">Temas abordados</span>
+                    </a>
+                    <a href="Valores.html" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="material-icons">volunteer_activism</i>
+                        </div>
+                        <span class="menu-text">Valores fundamentales</span>
+                    </a>
+                    <a href="Impacto.html" class="menu-item">
+                        <div class="menu-icon">
+                            <i class="material-icons">trending_up</i>
+                        </div>
+                        <span class="menu-text">Impacto esperado</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
