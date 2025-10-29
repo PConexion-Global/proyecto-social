@@ -6,7 +6,7 @@
     <title>Temas abordados - Conexión Global para el Futuro</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" type ="icon/x-icon" href = "img/favicon.jpg">
+    <link rel="icon" type="icon/x-icon" href="img/favicon.jpg">
     <style>
         * {
             margin: 0;
@@ -14,16 +14,6 @@
             box-sizing: border-box;
         }
 
-        .poster-container {
-            width: 100%;
-        }
-
-        @media (min-width: 600px) {
-            .poster-container {
-                width: 720px;
-            }
-        }
-        
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f5f5f5;
@@ -33,229 +23,235 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-        
+
         .poster-container {
             width: 100%;
-            min-height: 960px;
+            max-width: 1000px;
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #3a1c71, #4a69bd, #764ba2);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
-            padding: 40px;
+            padding: 20px;
             color: white;
+            border-radius: 16px;
         }
-        
+
         .bg-pattern {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 20%);
             z-index: 1;
         }
-        
+
         .content {
             position: relative;
             z-index: 2;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            gap: 20px;
         }
-        
+
         .header {
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        
+
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
         .title .material-icons {
-            font-size: 42px;
+            font-size: 36px;
         }
-        
+
+        .home-button {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+        }
+
         .main-content {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            flex-grow: 1;
+            gap: 20px;
         }
-        
+
         .section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 25px;
+            padding: 20px;
             backdrop-filter: blur(5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
-        
+
         .section-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #e0e0ff;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         .section-content {
-            font-size: 20px;
+            font-size: 1rem;
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .highlight {
             color: #b19cd9;
             font-weight: 500;
         }
-        
+
         .image-container {
             width: 100%;
-            margin: 20px 0;
+            margin: 10px 0;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
         }
-        
-        .image-container:hover {
-            transform: scale(1.02);
-        }
-        
+
         .main-image {
             width: 100%;
             display: block;
         }
-        
+
         .topics-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
-        
+
         .topic-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            height: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            gap: 10px;
+            transition: 0.3s ease;
         }
-        
+
         .topic-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
-        
+
         .topic-header {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
-        
+
         .topic-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: rgba(118, 75, 162, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
         }
-        
+
         .topic-title {
             font-weight: 600;
-            font-size: 22px;
+            font-size: 1.1rem;
             color: #e0e0ff;
         }
-        
+
         .topic-desc {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.5;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
         }
-        
-        .accent-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(118, 75, 162, 0.4), transparent);
-            z-index: 1;
+
+        /* 🔹 RESPONSIVE DESIGN 🔹 */
+
+        @media (max-width: 768px) {
+            .poster-container {
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .section-content {
+                font-size: 0.95rem;
+            }
         }
-        
-        .circle-1 {
-            width: 300px;
-            height: 300px;
-            top: -100px;
-            right: -100px;
-        }
-        
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            bottom: -50px;
-            left: -50px;
-            background: radial-gradient(circle, rgba(74, 105, 189, 0.4), transparent);
-        }
-        
-        .home-button {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .home-button:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.1);
-        }
-        
-        .home-button .material-icons {
-            font-size: 28px;
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.5rem;
+                flex-wrap: wrap;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topic-card {
+                padding: 12px;
+            }
+
+            .topic-title {
+                font-size: 1rem;
+            }
+
+            .topic-desc {
+                font-size: 0.9rem;
+            }
+
+            .home-button {
+                width: 40px;
+                height: 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="poster-container">
         <div class="bg-pattern"></div>
-        <div class="accent-circle circle-1"></div>
-        <div class="accent-circle circle-2"></div>
-        
+
         <div class="content">
             <div class="header">
                 <h1 class="title">
@@ -274,7 +270,10 @@
                         Nuestro enfoque educativo
                     </h2>
                     <div class="section-content">
-                        <p>A través de nuestras pláticas abordamos temas fundamentales para el desarrollo de <span class="highlight">hábitos políticos y cívicos</span> que fortalecen la participación ciudadana y la convivencia democrática.</p>
+                        <p>
+                            A través de nuestras pláticas abordamos temas fundamentales para el desarrollo de 
+                            <span class="highlight">hábitos políticos y cívicos</span> que fortalecen la participación ciudadana y la convivencia democrática.
+                        </p>
                     </div>
                 </div>
                 
@@ -291,57 +290,47 @@
                     <div class="topics-grid">
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">smart_toy</i>
-                                </div>
+                                <div class="topic-icon"><i class="material-icons">smart_toy</i></div>
                                 <div class="topic-title">Inteligencia Artificial</div>
                             </div>
                             <div class="topic-desc">
                                 Impacto de la IA en la sociedad y su relación con la toma de decisiones cívicas y políticas.
                             </div>
                         </div>
-                        
+
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">handshake</i>
-                                </div>
+                                <div class="topic-icon"><i class="material-icons">handshake</i></div>
                                 <div class="topic-title">Resolución de conflictos</div>
                             </div>
                             <div class="topic-desc">
                                 Técnicas para abordar desacuerdos de manera constructiva y pacífica en la comunidad.
                             </div>
                         </div>
-                        
+
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">public</i>
-                                </div>
+                                <div class="topic-icon"><i class="material-icons">public</i></div>
                                 <div class="topic-title">Diplomacia</div>
                             </div>
                             <div class="topic-desc">
                                 Principios de relaciones internacionales y su aplicación en la convivencia cotidiana.
                             </div>
                         </div>
-                        
+
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">record_voice_over</i>
-                                </div>
+                                <div class="topic-icon"><i class="material-icons">record_voice_over</i></div>
                                 <div class="topic-title">Oratoria</div>
                             </div>
                             <div class="topic-desc">
                                 Desarrollo de habilidades para expresar ideas de forma clara, persuasiva y respetuosa.
                             </div>
                         </div>
-                        
+
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">psychology</i>
-                                </div>
+                                <div class="topic-icon"><i class="material-icons">psychology</i></div>
                                 <div class="topic-title">Mediación</div>
                             </div>
                             <div class="topic-desc">
@@ -351,22 +340,18 @@
 
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">leaderboard</i>
-                                </div>
+                                <div class="topic-icon"><i class="material-icons">leaderboard</i></div>
                                 <div class="topic-title">Liderazgo</div>
                             </div>
                             <div class="topic-desc">
-                                Explorar los diferentes estilos y el como adaptarlos, a partir de ejercicios prácticos.
+                                Explorar los diferentes estilos y cómo adaptarlos, a partir de ejercicios prácticos.
                             </div>
                         </div>
 
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">location_city</i>
-                                </div>
-                                <div class="topic-title">Participacion Civica</div>
+                                <div class="topic-icon"><i class="material-icons">location_city</i></div>
+                                <div class="topic-title">Participación Cívica</div>
                             </div>
                             <div class="topic-desc">
                                 Entender la importancia de la participación del pueblo en la política tanto local como nacional.
@@ -375,38 +360,33 @@
 
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">groups</i>
-                                </div>
+                                <div class="topic-icon"><i class="material-icons">groups</i></div>
                                 <div class="topic-title">Trabajo en Equipo</div>
                             </div>
                             <div class="topic-desc">
                                 Fomentar la colaboración y cohesión en equipo a través de dinámicas grupales.
                             </div>
                         </div>
-                        
+
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">device_hub</i>
-                                </div>
-                                <div class="topic-title">Network y Creacion de Redes</div>
+                                <div class="topic-icon"><i class="material-icons">device_hub</i></div>
+                                <div class="topic-title">Network y Creación de Redes</div>
                             </div>
                             <div class="topic-desc">
-                                Informar sobre como construir una red de contactos y enseñar la importancia de tener mentores y ser un mentor.
+                                Cómo construir una red de contactos y la importancia de tener mentores y ser un mentor.
                             </div>
                         </div>
 
                         <div class="topic-card">
                             <div class="topic-header">
-                                <div class="topic-icon">
-                                    <i class="material-icons">rocket_launch</i>
-                                </div>
-                                <div class="topic-title">Innovacion y Creatividad</div>
+                                <div class="topic-icon"><i class="material-icons">rocket_launch</i></div>
+                                <div class="topic-title">Innovación y Creatividad</div>
                             </div>
                             <div class="topic-desc">
-                               Fomentar el pensamiento creativo de técnicas para la innovación en la solución de problemáticas
+                                Fomentar el pensamiento creativo y técnicas para la innovación en la solución de problemáticas.
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
